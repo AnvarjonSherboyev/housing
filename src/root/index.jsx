@@ -1,17 +1,29 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Container } from './style';
+import { navbar } from './../utils/navbar';
+import { Navbar } from './../components/Navbar/index';
 
 const Root = () => {
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route path='/home' element={<h1>Home</h1>} />
-                <Route path='/proporties' element={<h1>proporties</h1>} />
-                <Route path='/*' element={<h1>404 Not Found</h1>} />
-                <Route path='/' element={<Navigate to={'/home'} />} />
-            </Routes >
-        </BrowserRouter >
+        <Container>
+            <BrowserRouter>
+                <Routes>
+                    <Route element={<Navbar />}>
+
+                        {
+                            navbar.map(({ id, path, title, element }) => {
+                                return (
+                                    <Route key={id} path={path} element={element} />
+                                )
+                            })
+                        }
+                    </Route>
+                    <Route path='/*' element={<h1>404 Not Found</h1>} />
+                    <Route path='/' element={<Navigate to={'/home'} />} />
+                </Routes >
+            </BrowserRouter >
+        </Container>
     )
 }
 
