@@ -2,17 +2,23 @@
 
 * {
   box-sizing: border-box;
-  padding: 0 ;
-  margin: 0 ;
-}
-p{
-  margin:0;
   padding: 0;
+  margin: 0;
 }
-h1, h2, h3, h4{
+
+p {
   margin: 0;
   padding: 0;
 }
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
 }
@@ -23,6 +29,7 @@ body {
   /* color */
   --colorPrimary: #0D263B;
   --colorSecondary: #696969;
+  --colorGray:#696969;
 
   /* background */
   --background: #0061DF;
@@ -59,4 +66,13 @@ body {
   /* Color / 2 */
 
   color: #0D263B;
+}
+
+.Info {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #696969;
+
 }
