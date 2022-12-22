@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import {
-    Container, WrapContainer, InputWrap, Icons,
+    Container,  InputWrap, Icons,
     Fragment, Title, ContentWrap
 } from './style';
 import { Input, Button } from './../Generic/index';

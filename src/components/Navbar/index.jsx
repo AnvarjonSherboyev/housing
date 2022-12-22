@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink, Outlet, useNavigate } from 'react-router-dom';
+import {  Outlet, useNavigate } from 'react-router-dom';
 import { Container, Wrapper, Section, Logo, Link, WrapContainer } from './style';
 import logoImg from '../../assets/icons/logo.svg'
 import { navbar } from './../../utils/navbar';
