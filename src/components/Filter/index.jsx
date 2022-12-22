@@ -1,7 +1,8 @@
-import React from 'react'
-import { Container, WrapContainer, InputWrap, Icons,
+import React, { useRef } from 'react'
+import {
+    Container, WrapContainer, InputWrap, Icons,
     Fragment, Title, ContentWrap
- } from './style';
+} from './style';
 import { Input, Button } from './../Generic/index';
 import { Popover } from 'antd'
 
@@ -9,30 +10,43 @@ import { Popover } from 'antd'
 
 export const Filter = () => {
 
+    const countryRef = useRef()
+    const regionRef = useRef()
+    const cityRef = useRef()
+    const zipRef = useRef()
+
+    const roomsRef = useRef()
+    const sizeRef = useRef()
+    const sortRef = useRef()
+
+    const minPriceRef = useRef()
+    const maxPriceRef = useRef()
+
+
     const content = (
         <ContentWrap>
             <Title>Address</Title>
             <Fragment>
-                <Input placeholder={'Country...'} />
-                <Input placeholder={'Region...'} />
-                <Input placeholder={'City...'} />
-                <Input placeholder={'Zip code...'} />
+                <Input ref={countryRef} placeholder={'Country...'} />
+                <Input ref={regionRef} placeholder={'Region...'} />
+                <Input ref={cityRef} placeholder={'City...'} />
+                <Input ref={zipRef} placeholder={'Zip code...'} />
             </Fragment>
 
             <Title>Apartment Info</Title>
             <Fragment>
-                <Input placeholder={'Rooms...'} />
-                <Input placeholder={'Size...'} />
-                <Input placeholder={'Sort...'} />
+                <Input ref={roomsRef} placeholder={'Rooms...'} />
+                <Input ref={sizeRef} placeholder={'Size...'} />
+                <Input ref={sortRef} placeholder={'Sort...'} />
             </Fragment>
 
             <Title>Price</Title>
             <Fragment>
-                <Input placeholder={'Min-Price...'} />
-                <Input placeholder={'Max-Price...'} />
+                <Input ref={minPriceRef} placeholder={'Min-Price...'} />
+                <Input ref={maxPriceRef} placeholder={'Max-Price...'} />
             </Fragment>
             <Fragment>
-            <Button width={'130px'} ml="auto" type={'background'} >
+                <Button width={'130px'} ml="auto" type={'background'} >
                     <Icons.SearchAlt />search
                 </Button>
             </Fragment>
@@ -61,5 +75,7 @@ export const Filter = () => {
         </Container>
     )
 }
+
+
 
 export default Filter;
