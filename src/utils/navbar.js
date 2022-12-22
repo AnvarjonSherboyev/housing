@@ -20,4 +20,20 @@ export const navbar = [
         hidden: false,
         element: <ProportiesPage />,
     },
+    {
+        id: useUniqueId,
+        title: 'Sign In',
+        path: '/SignIn',
+        private: false,
+        hidden: true,
+        element: <h1>Sign IN</h1> ,
+    },
+    {
+        id: useUniqueId,
+        title: 'Sign Up',
+        path: '/SignUp',
+        private: false,
+        hidden: true,
+        element: <h1>Sign Up</h1> ,
+    },
 ];
