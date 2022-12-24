@@ -9,19 +9,19 @@ import {Heart} from "@styled-icons/bootstrap/Heart"
 export const Container = styled.div`
 width:380px;
 height:430px;
-filter:drop-shadow(0px,20px,38px rgba(0,0,0,0.06))
-drop-shadow(0px,7px,46px rgba(0,0,0,0.06))
-drop-shadow(0px,8px,15px rgba(0,0,0,0.06));
+box-shadow: 0px 10px 50px rgba(13, 38, 59, 0.1);
 border:1px solid red;
-margin: 100px;
+/* margin:0 .5rem; */
 border: 1px solid #E6E9EC;
 border-radius: 3px;
 background: #FFFFFF;
 `
 
+
 export const Img = styled.img`
 width:100%;
 max-height:220px;
+min-height:220px;
 margin-bottom:24px;
 `
 

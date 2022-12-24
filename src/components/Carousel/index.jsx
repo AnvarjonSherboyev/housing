@@ -24,7 +24,7 @@ export const GenCarousel = () => {
     <Container>
       <CaruselWrapper>
         <Button>
-          <Icon.Arrow left onClick={() => slider.current?.prev()} />
+          <Icon.Arrow left={"left"} onClick={() => slider.current?.prev()} />
           <Icon.Arrow onClick={() => slider.current?.next()} />
         </Button>
         <Blur></Blur>

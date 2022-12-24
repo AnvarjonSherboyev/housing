@@ -2,36 +2,42 @@ import React from 'react'
 import { Container, Img, Content, Details, Icons, Footer, FooterDiv } from './style';
 import noImg from "../../assets/images/no-image.png"
 
-export const HouseCard = ({ url, title, info }) => {
+export const HouseCard = ({ data = {} }) => {
+
+  const { attachments, name, address, city, region,
+    country, price, salePrice,
+    houseDetails } = data;
+
+  console.log(data)
   return (
     <Container>
-      <Img src={url || noImg} />
+      <Img src={attachments && attachments[0]?.imgPath || noImg} />
       <Content>
-        <div className="subTitle">{title || "New Apartment Nice Wiew"}</div>
-        <div className="Info">{info || "Quincy St, Brooklyn, NY, USA"}</div>
+        <div className="subTitle">{name || "New Apartment Nice Wiew"}</div>
+        <div className="Info">{address},{city},{country},{region}</div>
         <Details>
           <Details.Item>
             <Icons.Bed />
-            <div className="Info">4 Beds</div>
+            <div className="Info">Beds {houseDetails?.beds || 0}</div>
           </Details.Item>
           <Details.Item>
             <Icons.Bath />
-            <div className="Info">4 Bath</div>
+            <div className="Info">Bath {houseDetails?.bath || 0}</div>
           </Details.Item>
           <Details.Item>
             <Icons.CarSport />
-            <div className="Info">4 Garage</div>
+            <div className="Info">Garage {houseDetails?.garage || 0}</div>
           </Details.Item>
           <Details.Item>
             <Icons.SquareFoot />
-            <div className="Info">1200 Sq Ft</div>
+            <div className="Info">Area {houseDetails?.area || 0}</div>
           </Details.Item>
         </Details>
       </Content>
       <Footer>
         <FooterDiv>
-          <FooterDiv.Info>$2,800/mo</FooterDiv.Info>
-          <div className="subTitle">$7,500/mo</div>
+          <FooterDiv.Info>${price || 0}/mo</FooterDiv.Info>
+          <div className="subTitle">${salePrice || 0}/mo</div>
         </FooterDiv>
         <Details>
           <Icons>

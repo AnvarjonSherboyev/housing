@@ -3,7 +3,12 @@ import { Container } from './style';
 import { GenCarousel } from './../Carousel/index';
 import { HouseCard } from './../HouseCard/index';
 
+
+
 export const Home = () => {
+
+  
+
   return (
     <Container>
       <GenCarousel />
