@@ -5,16 +5,17 @@ import noImg from "../../assets/images/no-image.png"
 export const HouseCard = ({ data = {} }) => {
 
   const { attachments, name, address, city, region,
-    country, price, salePrice,
+    country, price, salePrice, category,
     houseDetails } = data;
 
-  console.log(data)
+  // console.log(data)
   return (
     <Container>
       <Img src={attachments ? attachments[0]?.imgPath : noImg} />
       <Content>
         <div className="subTitle">{name || "New Apartment Nice Wiew"}</div>
         <div className="Info">{address},{city},{country},{region}</div>
+        <div className="Info">Category-{category?.name || "none"}</div>
         <Details>
           <Details.Item>
             <Icons.Bed />

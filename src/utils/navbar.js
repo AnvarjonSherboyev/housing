@@ -1,6 +1,11 @@
+import React from 'react';
 import useUniqueId from "../hooks/useId";
-import { HomePage } from './../pages/Home/index';
-import { ProportiesPage } from './../pages/Proporties/index';
+
+// const { HomePage } = React.lazy(() => import('../pages/Home'));
+// const { ProportiesPage } = React.lazy(() => import('../pages/Proporties'));
+
+import { HomePage } from '../pages/Home';
+import { ProportiesPage } from '../pages/Proporties';
 
 
 export const navbar = [
@@ -10,15 +15,25 @@ export const navbar = [
         path: '/home',
         private: false,
         hidden: false,
-        element: <HomePage />,
+        element: (
+            // <React.Suspense fallback={<React.Fragment>Loading...</React.Fragment>} >
+            //     <HomePage />{''}
+            // </React.Suspense>
+            <HomePage />
+        ),
     },
     {
         id: useUniqueId,
         title: 'Proporties',
-        path: '/Proporties',
+        path: '/proporties',
         private: false,
         hidden: false,
-        element: <ProportiesPage />,
+        element: (
+            // <React.Suspense fallback={<React.Fragment>Loading...</React.Fragment>} >
+            //     <ProportiesPage />
+            // </React.Suspense>
+            <ProportiesPage />
+        ),
     },
     {
         id: useUniqueId,
@@ -26,7 +41,7 @@ export const navbar = [
         path: '/SignIn',
         private: false,
         hidden: true,
-        element: <h1>Sign IN</h1> ,
+        element: <h1>Sign IN</h1>,
     },
     {
         id: useUniqueId,
@@ -34,6 +49,6 @@ export const navbar = [
         path: '/SignUp',
         private: false,
         hidden: true,
-        element: <h1>Sign Up</h1> ,
+        element: <h1>Sign Up</h1>,
     },
 ];

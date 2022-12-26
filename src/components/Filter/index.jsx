@@ -1,7 +1,7 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import {
     Container, InputWrap, Icons,
-    Fragment, Title, ContentWrap
+    Fragment, Title, ContentWrap, SelectAnt
 } from './style';
 import { Input, Button } from './../Generic/index';
 import { Popover } from 'antd'
@@ -10,11 +10,14 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { useSearch } from './../../hooks/uzeSearch';
 
 
+const { REACT_APP_BASE_URL: url } = process.env
 
 export const Filter = () => {
 
     const location = useLocation()
     const navigate = useNavigate()
+    const [data, setData] = useState([])
+    const [value, setValue] = useState("Select Category")
     const query = useSearch()
 
     const countryRef = useRef()
@@ -23,7 +26,6 @@ export const Filter = () => {
     const zipRef = useRef()
 
     const roomsRef = useRef()
-    const sizeRef = useRef()
     const sortRef = useRef()
 
     const minPriceRef = useRef()
@@ -35,6 +37,33 @@ export const Filter = () => {
         navigate(`${location.pathname}${uzeReplace(name, value)}`)
     }
 
+
+
+    useEffect(() => {
+        fetch(`${url}/categories/list`)
+            .then((res) => res.json())
+            .then((res) => {
+                setData(res?.data || [])
+
+            })
+    }, [])
+
+    useEffect(() => {
+        let [d] = data?.filter(
+            (ctg) => ctg?.id === Number(query.get('category_id'))
+        );
+        d?.name && setValue(d?.name);
+        !query.get('category_id') && setValue('Select Category');
+    }, [location?.search, data])
+
+    const onChangeCategory = (category_id) => {
+        // console.log(category_id, "event");
+        navigate(`/proporties${uzeReplace("category_id", category_id)}`)
+    }
+
+    const onChangeSort = (sort) => {
+        navigate(`/proporties${uzeReplace("sort", sort)}`)
+    }
 
     const content = (
         <ContentWrap>
@@ -56,7 +85,7 @@ export const Filter = () => {
                     defaultValue={query.get("city")}
                     ref={cityRef}
                     placeholder={'City...'}
-                    name="city"
+                    name="address"
                 />
                 <Input onChange={onChange}
                     defaultValue={query.get("zip_code")}
@@ -74,18 +103,31 @@ export const Filter = () => {
                     placeholder={'Rooms...'}
                     name="room"
                 />
-                <Input onChange={onChange}
-                    defaultValue={query.get("size")}
-                    ref={sizeRef}
-                    placeholder={'Size...'}
-                    name="size"
-                />
+
                 <Input onChange={onChange}
                     defaultValue={query.get("sort")}
                     ref={sortRef}
                     placeholder={'Sort...'}
                     name="sort"
                 />
+                <SelectAnt defaultValue={query.get("sort") || "Select Sort"} onChange={onChangeSort} >
+                    <SelectAnt.Option value={"asc"}>O'suvchi</SelectAnt.Option>
+                    <SelectAnt.Option value={"desc"}>Kamayuvchi</SelectAnt.Option>
+                </SelectAnt>
+                <SelectAnt defaultValue={value} onChange={onChangeCategory} >
+                    {
+                        data?.map((value) => {
+                            return (
+                                <SelectAnt.Option
+                                    key={value?.id}
+                                    value={value?.id}
+                                >
+                                    {value?.name}
+                                </SelectAnt.Option>
+                            )
+                        })
+                    }
+                </SelectAnt>
             </Fragment>
 
             <Title>Price</Title>
@@ -104,13 +146,13 @@ export const Filter = () => {
                 />
             </Fragment>
             <Fragment>
-                <Button width={'130px'} ml="auto" type={'background'} >
-                    <Icons.SearchAlt />search
+                <Button width={'130px'} onClick={() => navigate('/proporties')} ml="auto" type={'background'} >
+                    <Icons.SearchAlt />clear
                 </Button>
             </Fragment>
         </ContentWrap>
     );
-    console.log(uzeReplace("addres", "tashkent"), "ref")
+    // console.log(uzeReplace("addres", "tashkent"), "ref")
     return (
         <Container>
             <InputWrap>

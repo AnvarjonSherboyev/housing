@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { ReactComponent as Advanced } from '../../assets/icons/Advanced.svg';
 import { ReactComponent as FilterHome } from '../../assets/icons/FilterHome.svg';
-import {SearchAlt} from '@styled-icons/boxicons-regular/SearchAlt'
-
+import { SearchAlt } from '@styled-icons/boxicons-regular/SearchAlt'
+import { Select } from 'antd';
 
 
 export const Container = styled.div`
@@ -60,4 +60,19 @@ font-weight: 600;
 font-size: 16px;
 line-height: 24px;
 color: #0D263B;
+`
+
+export const SelectAnt = styled(Select)`
+display:flex;
+justify-content:center;
+align-items:center;
+min-width:150px;
+min-height:44px;
+.ant-select-selector{
+    height:44px !important;
+}
+.ant-select-selection-placeholder{
+    display:flex;
+    align-items:center;
+}
 `

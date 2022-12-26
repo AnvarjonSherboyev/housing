@@ -7,9 +7,11 @@ import {ArrowsAngleExpand} from "@styled-icons/bootstrap/ArrowsAngleExpand"
 import {Heart} from "@styled-icons/bootstrap/Heart"
 
 export const Container = styled.div`
-width:380px;
-height:430px;
-box-shadow: 0px 10px 50px rgba(13, 38, 59, 0.1);
+width:100%;
+max-width:380px;
+min-width:330px;
+height:450px;
+box-shadow: rgb(13 38 59 / 40%) 0px 8px 20px;
 border:1px solid red;
 /* margin:0 .5rem; */
 border: 1px solid #E6E9EC;
