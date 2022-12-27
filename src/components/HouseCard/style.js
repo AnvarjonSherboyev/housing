@@ -8,15 +8,25 @@ import {Heart} from "@styled-icons/bootstrap/Heart"
 
 export const Container = styled.div`
 width:100%;
-max-width:380px;
+max-width:360px;
 min-width:330px;
 height:450px;
 box-shadow: rgb(13 38 59 / 40%) 0px 8px 20px;
 border:1px solid red;
-/* margin:0 .5rem; */
 border: 1px solid #E6E9EC;
 border-radius: 3px;
 background: #FFFFFF;
+/* margin-left:${({ ml }) => `${ml}`};
+margin-right:${({ mr }) => `${mr}`}; */
+cursor:pointer;
+user-select:none;
+:active{
+    transform: scale(0.96);
+    opacity:0.7;
+}
+:hover{
+    transform: scale(1.05);
+}
 `
 
 

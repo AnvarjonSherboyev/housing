@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Slider from "react-slick";
+import { Carousel } from 'antd'
 import { NavigateNext } from '@styled-icons/material-rounded/NavigateNext'
 
 
@@ -7,31 +7,29 @@ import { NavigateNext } from '@styled-icons/material-rounded/NavigateNext'
 export const Container = styled.div`
 display: flex;
 width:100%;
-position:relative;
 justify-content: center;
 align-items:center;
-border:1px solid red;
-margin:90px 0;
 `
 
 export const CaruselWrapper = styled.div`
-/* display:flex; */
-/* justify-content: center;
-align-items:center; */
+position:relative;
 width:100%;
-/* height: 350px; */
-max-width:var(--mainWidth);
-padding:var(--mainPadding);
+/* max-width:var(--mainWidth); */
+height: 570px;
 `
 
-export const MainCarusel = styled(Slider)`
+export const MainCarusel = styled(Carousel)`
 height: fit-content;
 display:flex;
-justify-content:center;
-align-items:center;
-height: 350px;
+/* position:relative; */
+height: 570px;
 `
-
+export const Img = styled.img`
+background-color: black;
+width: 100%;
+height:570px;
+/* object:fit-content; */
+`
 export const Icon = styled.div`
 `;
 
@@ -43,11 +41,11 @@ margin-left:10px;
 width:45px;
 height:45px;
 padding:10px;
-color:#0D263B;
+color:white;
 z-index:3;
 cursor:pointer;
 opacity:0.5;
-background:rgba(230, 233, 236, 1);
+background:rgba(255,255,255,0.3);
 border-radius:50%;
 border:1px solid white;
 :hover{
@@ -58,8 +56,8 @@ margin-left: ${({ left }) => (left ? "32px" : "none")} ;
 transform: ${({ left }) => (left ? "rotate(180deg)" : "none")};
 `
 
-export const Button = styled.div`
-display:none;
+export const ButtonDiv = styled.div`
+display:flex;
 justify-content:space-between;
 border:1px solid red;
 position:absolute;
@@ -71,3 +69,38 @@ transform: translate(-50%,-50%);
 max-width:var(--mainWidth);
 `
 
+export const Blur = styled.div`
+position:absolute;
+top:0;
+bottom:0;
+left:0;
+right:0;
+z-index:5;
+background: transparent;
+background: rgba(0, 0, 0, 0.65);
+`
+
+export const Content = styled.div`
+position:absolute;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+color:white;
+top:0;
+bottom:0;
+left:0;
+right:0;
+z-index:6;
+background: transparent;
+`
+Content.Title = styled.h1`
+font-style: normal;
+width: 566px;
+font-weight: 600;
+font-size: 28px;
+line-height: 36px;
+text-align: center;
+letter-spacing: -0.02em;
+color: #FFFFFF;
+`

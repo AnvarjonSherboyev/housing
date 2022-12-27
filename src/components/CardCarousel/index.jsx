@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { CategoryCard } from './../CategoryCard/index';
 import {
   Container, CaruselWrapper,
   Icon, MainCarusel,
   Button
 } from './style';
 import { useNavigate } from 'react-router-dom';
+import { HouseCard } from './../HouseCard/index';
 
 const { REACT_APP_BASE_URL: url } = process.env
 
@@ -13,8 +13,8 @@ const settings = {
   className: "center",
   centerMode: true,
   infinite: true,
-  centerPadding: "50px",
-  slidesToShow: 4,
+  centerPadding: "30px",
+  slidesToShow: 3,
   speed: 500,
   arrows: true,
   dots: true,
@@ -22,13 +22,13 @@ const settings = {
 };
 
 
-export const CatCarousel = () => {
+export const CardCarousel = () => {
 
   const [data, setData] = useState()
   const navigate = useNavigate()
 
   useEffect(() => {
-    fetch(`${url}/categories/list`)
+    fetch(`${url}/houses/list`)
       .then((res) => res.json())
       .then((res) => {
         setData(res?.data || [])
@@ -39,7 +39,7 @@ export const CatCarousel = () => {
   return (
     <Container>
       <CaruselWrapper>
-        <div className="mainTitle">Category</div>
+        <div className="mainTitle">Recommended</div>
         <div className="InfoCenter">Nulla quis curabitur velit volutpat auctor bibendum consectetur sit.</div>
         <Button>
           <Icon.Arrow left={"left"} />
@@ -50,7 +50,11 @@ export const CatCarousel = () => {
           {
             data?.map((value) => {
               return (
-                <CategoryCard onClick={()=>navigate(`/proporties?category_id=${value?.id}`)} data={value} key={value?.id} />
+                <HouseCard mr={"20px"} ml={"20px"}
+                  onClick={() => navigate(`/proporties?${value?.id}`)}
+                  data={value}
+                  key={value?.id}
+                />
               )
             })
           }
@@ -61,4 +65,4 @@ export const CatCarousel = () => {
   )
 }
 
-export default CatCarousel;
+export default CardCarousel;

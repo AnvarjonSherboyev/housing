@@ -19,7 +19,7 @@ export const Proporties = () => {
       })
   }, [search])
 
-
+  // console.log(data, "data")
   return (
     <Container>
       <WrapContainer>
@@ -29,7 +29,7 @@ export const Proporties = () => {
           )
         })}
       </WrapContainer>
-    </Container>
+    </Container >
   )
 }
 

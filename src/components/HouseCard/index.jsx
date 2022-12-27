@@ -2,7 +2,7 @@ import React from 'react'
 import { Container, Img, Content, Details, Icons, Footer, FooterDiv } from './style';
 import noImg from "../../assets/images/no-image.png"
 
-export const HouseCard = ({ data = {} }) => {
+export const HouseCard = ({ onClick, ml, mr, data = {} }) => {
 
   const { attachments, name, address, city, region,
     country, price, salePrice, category,
@@ -10,7 +10,7 @@ export const HouseCard = ({ data = {} }) => {
 
   // console.log(data)
   return (
-    <Container>
+    <Container onClick={onClick} mr={mr} ml={ml} >
       <Img src={attachments ? attachments[0]?.imgPath : noImg} />
       <Content>
         <div className="subTitle">{name || "New Apartment Nice Wiew"}</div>

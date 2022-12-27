@@ -17,6 +17,14 @@ border: 1px solid #E6E9EC;
 border-radius: 3px;
 background: #FFFFFF;
 cursor:pointer;
+user-select:none;
+:active{
+    transform: scale(0.96);
+    opacity:0.7;
+}
+:hover{
+    transform: scale(1.05);
+}
 `
 
 

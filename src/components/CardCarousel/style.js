@@ -29,7 +29,10 @@ height: fit-content;
 display:flex;
 justify-content:center;
 align-items:center;
-height: 350px;
+/* height: 350px; */
+margin:30px 0;
+padding:30px 0;
+
 `
 
 export const Icon = styled.div`
