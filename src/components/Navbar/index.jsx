@@ -5,6 +5,8 @@ import logoImg from '../../assets/icons/logo.svg'
 import { navbar } from './../../utils/navbar';
 import { Button } from './../Generic/Button/index';
 import { Filter } from './../Filter/index';
+import { Footer } from './../Footer/index';
+
 
 
 
@@ -40,6 +42,7 @@ export const Navbar = () => {
       </WrapContainer>
       <Filter />
       <Outlet />
+      <Footer />
     </Container>
   )
 }

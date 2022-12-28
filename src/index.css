@@ -47,6 +47,7 @@ body {
   letter-spacing: -0.02em;
   text-transform: capitalize;
   color: #0D263B;
+  user-select: none;
 }
 .title {
   font-family: 'Montserrat';
@@ -58,6 +59,7 @@ body {
   letter-spacing: -0.02em;
   color: #0D263B;
   text-transform: capitalize;
+  user-select: none;
 }
 
 .subTitle {
@@ -68,6 +70,7 @@ body {
   line-height: 24px;
   color: #0D263B;
   text-transform: capitalize;
+  user-select: none;
 }
 
 .Info {
@@ -77,6 +80,7 @@ body {
   line-height: 20px;
   color: #696969;
   text-transform: capitalize;
+  user-select: none;
 }
 
 .InfoCenter {
@@ -88,6 +92,7 @@ body {
   color: #696969;
   text-align: center;
   text-transform: capitalize;
+  user-select: none;
 }
 
 .slick-prev,
