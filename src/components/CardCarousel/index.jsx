@@ -51,7 +51,7 @@ export const CardCarousel = () => {
             data?.map((value) => {
               return (
                 <HouseCard mr={"20px"} ml={"20px"}
-                  onClick={() => navigate(`/proporties?${value?.id}`)}
+                  onClick={() => navigate(`/proporties/${value?.id}`)}
                   data={value}
                   key={value?.id}
                 />

@@ -54,6 +54,7 @@ export const Filter = () => {
         );
         d?.name && setValue(d?.name);
         !query.get('category_id') && setValue('Select Category');
+        // eslint-disable-line react-hooks/exhaustive-deps
     }, [location?.search, data])
 
     const onChangeCategory = (category_id) => {
