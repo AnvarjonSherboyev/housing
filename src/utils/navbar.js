@@ -1,11 +1,15 @@
 import React from 'react';
 import useUniqueId from "../hooks/useId";
+import SignInPage from "../pages/SignInPage"
 
-// const { HomePage } = React.lazy(() => import('../pages/Home'));
-// const { ProportiesPage } = React.lazy(() => import('../pages/Proporties'));
+const  HomePage  = React.lazy(() => import('../pages/Home'));
+const  ProportiesPage  = React.lazy(() => import('../pages/Proporties'));
+const  HousePage  = React.lazy(() => import('../pages/HousePage'));
 
-import { HomePage } from '../pages/Home';
-import { ProportiesPage } from '../pages/Proporties';
+
+
+// import { HomePage } from '../pages/Home';
+// import { ProportiesPage } from '../pages/Proporties';
 
 
 export const navbar = [
@@ -16,10 +20,10 @@ export const navbar = [
         private: false,
         hidden: false,
         element: (
-            // <React.Suspense fallback={<React.Fragment>Loading...</React.Fragment>} >
-            //     <HomePage />{''}
-            // </React.Suspense>
-            <HomePage />
+            <React.Suspense fallback={<React.Fragment>Loading...</React.Fragment>} >
+                <HomePage />{''}
+            </React.Suspense>
+            // <HomePage />
         ),
     },
     {
@@ -29,10 +33,23 @@ export const navbar = [
         private: false,
         hidden: false,
         element: (
-            // <React.Suspense fallback={<React.Fragment>Loading...</React.Fragment>} >
-            //     <ProportiesPage />
-            // </React.Suspense>
-            <ProportiesPage />
+            <React.Suspense fallback={<React.Fragment>Loading...</React.Fragment>} >
+                <ProportiesPage />
+            </React.Suspense>
+            // <ProportiesPage />
+        ),
+    },
+    {
+        id: useUniqueId,
+        title: 'HousePage',
+        path: '/proporties/:id',
+        private: false,
+        hidden: true,
+        element: (
+            <React.Suspense fallback={<React.Fragment>Loading...</React.Fragment>} >
+                <HousePage />
+            </React.Suspense>
+            // <ProportiesPage />
         ),
     },
     {
@@ -41,7 +58,7 @@ export const navbar = [
         path: '/SignIn',
         private: false,
         hidden: true,
-        element: <h1>Sign IN</h1>,
+        element: <SignInPage/>,
     },
     {
         id: useUniqueId,

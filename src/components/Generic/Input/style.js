@@ -44,6 +44,9 @@ margin-top:${({ mt }) => `${mt}`};
 ${({ type }) => getType(type)}
 color: #0d263b;
 border: 1px solid #e6e9ec;
+:focus{
+    border: 1px solid #0061DF;
+}
 `;
 
 export const Wrapper = styled.div`

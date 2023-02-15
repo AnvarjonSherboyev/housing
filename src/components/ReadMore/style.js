@@ -57,7 +57,7 @@ transform: ${({ left }) => (left ? "rotate(180deg)" : "none")};
 `
 
 export const ButtonDiv = styled.div`
-display:flex;
+display:none;
 justify-content:space-between;
 border:1px solid red;
 position:absolute;

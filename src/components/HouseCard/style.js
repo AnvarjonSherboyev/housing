@@ -3,15 +3,14 @@ import { Bed } from "@styled-icons/ionicons-outline/Bed";
 import { Bath } from "@styled-icons/boxicons-regular/Bath"
 import { CarSport } from "@styled-icons/ionicons-sharp/CarSport"
 import { SquareFoot } from "@styled-icons/material-rounded/SquareFoot"
-import {ArrowsAngleExpand} from "@styled-icons/bootstrap/ArrowsAngleExpand"
-import {Heart} from "@styled-icons/bootstrap/Heart"
+import { ArrowsAngleExpand } from "@styled-icons/bootstrap/ArrowsAngleExpand"
+import { Heart } from "@styled-icons/bootstrap/Heart"
 
 export const Container = styled.div`
 width:100%;
 max-width:360px;
 min-width:330px;
 height:450px;
-box-shadow: rgb(13 38 59 / 40%) 0px 8px 20px;
 border:1px solid red;
 border: 1px solid #E6E9EC;
 border-radius: 3px;
@@ -26,6 +25,8 @@ user-select:none;
 }
 :hover{
     transform: scale(1.05);
+    box-shadow: rgb(13 38 59 / 40%) 0px 8px 20px;
+
 }
 `
 

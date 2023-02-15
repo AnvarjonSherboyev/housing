@@ -18,9 +18,9 @@ const Root = () => {
                                 )
                             })
                         }
+                        <Route path='/*' element={<h1>404 Not Found</h1>} />А
+                        <Route path='/' element={<Navigate to={'/home'} />} />
                     </Route>
-                    <Route path='/*' element={<h1>404 Not Found</h1>} />
-                    <Route path='/' element={<Navigate to={'/home'} />} />
                 </Routes >
             </BrowserRouter >
         </Container>

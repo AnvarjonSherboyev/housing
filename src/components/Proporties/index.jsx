@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Container, WrapContainer } from './style';
 import { HouseCard } from './../HouseCard/index';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
 const { REACT_APP_BASE_URL: url } = process.env
@@ -10,6 +10,8 @@ export const Proporties = () => {
 
   const [data, setData] = useState()
   const { search } = useLocation()
+  const navigate = useNavigate()
+
 
   useEffect(() => {
     fetch(`${url}/houses/list${search}`)
@@ -17,15 +19,21 @@ export const Proporties = () => {
       .then((res) => {
         setData(res?.data || [])
       })
+
   }, [search])
 
   // console.log(data, "data")
+
+  const onSelect = (id) => {
+    navigate(`/proporties/${id}`)
+  }
+
   return (
     <Container>
       <WrapContainer>
         {data?.map((value) => {
           return (
-            <HouseCard data={value} key={value.id} />
+            <HouseCard onClick={()=>onSelect(value.id)} data={value} key={value.id} />
           )
         })}
       </WrapContainer>

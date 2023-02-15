@@ -24,15 +24,19 @@ export const ReadMore = () => {
   return (
     <Container>
       <CaruselWrapper>
+
         <ButtonDiv>
           <Icon.Arrow left={"left"} onClick={() => slider.current?.prev()} />
           <Icon.Arrow onClick={() => slider.current?.next()} />
         </ButtonDiv>
+
         <Blur></Blur>
+
         <Content>
           <Content.Title>Vermont Farmhouse With Antique Jail Is the Week's Most Popular Home</Content.Title>
           <Button width={"180px"} type={"background"} >Read More</Button>
         </Content>
+
         <MainCarusel ref={slider} dots autoplay>
           <Img style={contentStyle} src={img1} alt="img" />
           <Img src={img2} alt="img" />
@@ -40,7 +44,6 @@ export const ReadMore = () => {
           <Img src={img2} alt="img" />
           <Img src={img1} alt="img" />
           <Img src={img2} alt="img" />
-
         </MainCarusel>
 
       </CaruselWrapper>
