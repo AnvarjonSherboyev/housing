@@ -1,9 +1,9 @@
 import { createContext, useReducer } from "react";
 import { reducer } from './reducer';
 
-const ProportiesContext = createContext()
+export const ProportiesContext = createContext()
 
-const ProportiesProvider = ({ children }) => {
+export const ProportiesProvider = ({ children }) => {
 
     const [state, dispatch] = useReducer(reducer, [])
 

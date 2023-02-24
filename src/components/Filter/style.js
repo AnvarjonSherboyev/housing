@@ -60,6 +60,7 @@ font-weight: 600;
 font-size: 16px;
 line-height: 24px;
 color: #0D263B;
+user-select:none;
 `
 
 export const SelectAnt = styled(Select)`

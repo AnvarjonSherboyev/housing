@@ -8,6 +8,7 @@ width:100%;
 display:flex;
 flex-direction:column;
 justify-content: center !important;
+min-height:100%;
 `
 
 export const WrapContainer = styled.div`
@@ -56,4 +57,18 @@ font-size: 16px;
 line-height: 24px;
 padding:0 32px;
 
+`
+
+export const Title = styled.span`
+display:flex;
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+color: #0D263B;
+user-select:none;
+cursor:pointer;
+:hover{
+    color:#0061DF;
+}
 `

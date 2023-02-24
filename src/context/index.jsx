@@ -1,4 +1,4 @@
-import ProportiesProvider from './proporties/index';
+import ProportiesProvider from './properties/index';
 
 
 const RootContext = ({ children }) => {

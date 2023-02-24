@@ -10,7 +10,7 @@ export const Container = styled.div`
 width:100%;
 max-width:360px;
 min-width:330px;
-height:450px;
+/* height:450px; */
 border:1px solid red;
 border: 1px solid #E6E9EC;
 border-radius: 3px;
@@ -47,7 +47,7 @@ export const Details = styled.div`
 display:flex;
 justify-content:space-between;
 padding:16px 0;
-gap:20px;
+gap:10px;
 `
 Details.Item = styled.div`
 display:flex;
@@ -67,8 +67,9 @@ border-radius:50%;
 background: #F6F8F9;
 cursor:pointer;
 &:hover .my__unique__button__class-asdf123 {
-    color: red;
+    color: ${({ favorite }) => (favorite ? 'white' : 'red')};
 }
+background:${({ favorite }) => (favorite ? 'red' : 'white')};
 `
 Icons.Bed = styled(Bed)`
 width:25px;

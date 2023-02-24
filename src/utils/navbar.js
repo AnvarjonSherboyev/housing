@@ -4,6 +4,7 @@ import SignInPage from "../pages/SignInPage"
 
 const  HomePage  = React.lazy(() => import('../pages/Home'));
 const  ProportiesPage  = React.lazy(() => import('../pages/Proporties'));
+const  FavouritesPage  = React.lazy(() => import('../pages/FavouritesPage'));
 const  HousePage  = React.lazy(() => import('../pages/HousePage'));
 
 
@@ -35,6 +36,19 @@ export const navbar = [
         element: (
             <React.Suspense fallback={<React.Fragment>Loading...</React.Fragment>} >
                 <ProportiesPage />
+            </React.Suspense>
+            // <ProportiesPage />
+        ),
+    },
+    {
+        id: useUniqueId,
+        title: 'Favourites',
+        path: '/favourites',
+        private: true,
+        hidden: true,
+        element: (
+            <React.Suspense fallback={<React.Fragment>Loading...</React.Fragment>} >
+                <FavouritesPage />
             </React.Suspense>
             // <ProportiesPage />
         ),

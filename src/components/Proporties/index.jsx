@@ -30,10 +30,12 @@ export const Proporties = () => {
 
   return (
     <Container>
+      <div className="title">Proporties</div>
+      <div className="InfoCenter">Nulla quis curabitur velit volutpat auctor bibendum consectetur sit.</div>
       <WrapContainer>
         {data?.map((value) => {
           return (
-            <HouseCard onClick={()=>onSelect(value.id)} data={value} key={value.id} />
+            <HouseCard onClick={() => onSelect(value.id)} data={value} key={value.id} />
           )
         })}
       </WrapContainer>

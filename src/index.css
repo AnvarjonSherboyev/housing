@@ -29,7 +29,7 @@ body {
   /* color */
   --colorPrimary: #0D263B;
   --colorSecondary: #696969;
-  --colorGray:#696969;
+  --colorGray: #696969;
 
   /* background */
   --background: #0061DF;
@@ -38,24 +38,38 @@ body {
 
   --mainPadding: 0 130px;
 }
+
 .mainTitle {
   font-style: normal;
   font-weight: 600;
   font-size: 28px;
   line-height: 36px;
-  text-align: center;
   letter-spacing: -0.02em;
   text-transform: capitalize;
   color: #0D263B;
   user-select: none;
+  text-align: center;
 }
+
 .title {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 600;
-  font-size: 28px;
+  font-size: 24px;
   line-height: 36px;
   text-align: center;
+  letter-spacing: -0.02em;
+  color: #0D263B;
+  text-transform: capitalize;
+  user-select: none;
+}
+
+.startTitle {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 36px;
   letter-spacing: -0.02em;
   color: #0D263B;
   text-transform: capitalize;
@@ -66,7 +80,7 @@ body {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 24px;
   color: #0D263B;
   text-transform: capitalize;
@@ -76,11 +90,20 @@ body {
 .Info {
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 20px;
   color: #696969;
   text-transform: capitalize;
   user-select: none;
+}
+
+.Infodel {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  text-decoration-line: line-through;
+  color: #696969;
 }
 
 .InfoCenter {
@@ -96,7 +119,7 @@ body {
 }
 
 .slick-prev,
-.slick-next{
+.slick-next {
   width: 45px !important;
   height: 45px !important;
   padding: 10px;
@@ -107,12 +130,16 @@ body {
   border-radius: 50%;
   border: 1px solid var(--colorGray);
 }
+
 .slick-prev {
   left: -100px !important;
 }
-.slick-next{
+
+.slick-next {
   right: -100px !important;
 }
-.slick-prev:before,.slick-next:before{
-  font-size:30px !important;
+
+.slick-prev:before,
+.slick-next:before {
+  font-size: 30px !important;
 }
