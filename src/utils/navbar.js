@@ -1,6 +1,6 @@
 import React from 'react';
 import useUniqueId from "../hooks/useId";
-import SignInPage from "../pages/SignInPage"
+import RegisterPage from "../pages/RegisterPage"
 
 const  HomePage  = React.lazy(() => import('../pages/Home'));
 const  ProportiesPage  = React.lazy(() => import('../pages/Proporties'));
@@ -68,11 +68,11 @@ export const navbar = [
     },
     {
         id: useUniqueId,
-        title: 'Sign In',
-        path: '/SignIn',
+        title: 'Register',
+        path: '/Register',
         private: false,
         hidden: true,
-        element: <SignInPage/>,
+        element: <RegisterPage/>,
     },
     {
         id: useUniqueId,

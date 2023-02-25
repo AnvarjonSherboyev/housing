@@ -143,3 +143,15 @@ body {
 .slick-next:before {
   font-size: 30px !important;
 }
+
+:where(.css-dev-only-do-not-override-26rdvq).ant-tabs .ant-tabs-tab{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 36px;
+  letter-spacing: -0.02em;
+  color: #0D263B;
+  text-transform: capitalize;
+  user-select: none;
+}
