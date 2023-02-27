@@ -28,26 +28,27 @@ export const ImgWrapper = styled.div`
 width:100%;
 display:flex;
 gap:20px;
-
 `
 export const ImgWrap = styled.div`
-flex:1;
 display:flex;
+flex:1;
 border:1px solid black;
 /* min-height:150px; */
 `
 ImgWrap.Img = styled.img`
 width:100%;
-/* height:350px; */
+/* height:400px; */
+max-height: 420px;
 `
 ImgWrap.Img2 = styled.img`
 width:100%;
-/* height:150px; */
+height:200px;
+object-fit: cover;
 `
 
 export const ImgWrap2 = styled.div`
-flex:1;
 display:flex;
+flex:1;
 flex-direction:column;
 gap:20px;
 border:1px solid black;

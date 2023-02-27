@@ -20,6 +20,7 @@ export const Filter = () => {
     const [value, setValue] = useState("Select Category")
     const query = useSearch()
 
+    const nameRef = useRef()
     const countryRef = useRef()
     const regionRef = useRef()
     const cityRef = useRef()
@@ -35,6 +36,7 @@ export const Filter = () => {
 
     const onChange = ({ target: { name, value } }) => {
         navigate(`${location.pathname}${uzeReplace(name, value)}`)
+        console.log(value, "name");
     }
 
 
@@ -55,10 +57,13 @@ export const Filter = () => {
         d?.name && setValue(d?.name);
         !query.get('category_id') && setValue('Select Category');
         // eslint-disable-line react-hooks/exhaustive-deps
+        // eslint-disable-line react-hooks/exhaustive-deps
     }, [location?.search, data])
+        // eslint-disable-line react-hooks/exhaustive-deps
+        // eslint-disable-line react-hooks/exhaustive-deps
+
 
     const onChangeCategory = (category_id) => {
-        // console.log(category_id, "event");
         navigate(`/proporties${uzeReplace("category_id", category_id)}`)
     }
 
@@ -141,7 +146,7 @@ export const Filter = () => {
                 />
                 <Input onChange={onChange}
                     defaultValue={query.get("max_price")}
-                    ref={maxPriceRef}
+                    ref={maxPriceRef || cityRef || regionRef}
                     placeholder={'Max-Price...'}
                     name="max_price"
                 />
@@ -157,8 +162,12 @@ export const Filter = () => {
     return (
         <Container>
             <InputWrap>
-                <Input placeholder={'Enter an address, neighborhood, city, or ZIP code'}
+                <Input onChange={onChange}
+                    defaultValue={query.get('name')}
+                    ref={nameRef}
+                    placeholder={'Enter an address, neighborhood, city, or ZIP code'}
                     pl={"45px"}
+                    name={'country'}
                 >
                     <Icons.Filter />
                 </Input >
@@ -170,8 +179,8 @@ export const Filter = () => {
                     </Button>
                 </Popover>
 
-                <Button width={'130px'} type={'background'} >
-                    <Icons.SearchAlt />search
+                <Button onClick={() => navigate('/proporties')} width={'130px'} type={'background'} >
+                    <Icons.SearchAlt />clear
                 </Button>
             </InputWrap>
         </Container>

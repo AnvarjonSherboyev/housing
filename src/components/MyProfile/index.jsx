@@ -8,7 +8,7 @@ import { ProportiesContext } from '../../context/properties'
 
 const { REACT_APP_BASE_URL: url } = process.env
 
-export const Favourities = () => {
+export const MyProfile = () => {
 
   // const [data, setData] = useState([])
   const { search } = useLocation()
@@ -41,11 +41,10 @@ export const Favourities = () => {
     navigate(`/proporties/${id}`)
   }
 
-  // console.log(data,'data')
+  // console.log(data, 'data')
   return (
     <Container>
-      <div className="title">Favourities</div>
-      <div className="InfoCenter">Nulla quis curabitur velit volutpat auctor bibendum consectetur sit.</div>
+      <div className="title">My Properties</div>
       <WrapContainer>
         {data?.data?.length ?
           (data?.data?.map((value) => {
@@ -61,4 +60,4 @@ export const Favourities = () => {
   )
 }
 
-export default Favourities;
+export default MyProfile;

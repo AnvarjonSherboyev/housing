@@ -25,6 +25,9 @@ export const SignUp = () => {
   const info = () => {
     message.info('Successfully Sign Up and We send verification code to your email !')
   };
+  const warning = () => {
+    message.warning('Your email alredy exist or Email Address is Not a Well Formed !')
+  };
 
   const onSubmit = async () => {
     request({
@@ -32,15 +35,19 @@ export const SignUp = () => {
       method: 'POST',
       body,
       me: true,
-    }).then((res) => res.json())
+    })
       .then((res) => {
-        console.log(res)
-        if (res?.success) {
-          navigate('/register');
-          info();
+        console.log(res?.success, 'res')
+        if (res?.success === false) {
+          warning();
         }
-      }
-      )
+        else {
+          info() && navigate('/signin');
+        }
+      })
+    // .catch((status) => {
+    //   console.log(status, 'error')
+    // });
   };
 
   return (

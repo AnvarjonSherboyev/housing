@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import { Checkbox } from 'antd';
 import {
@@ -11,8 +11,10 @@ import { Input } from './../Generic/Input/index';
 import { Button } from './../Generic/Button/index';
 import noUser from './../../assets/images/nouser.jpg'
 import { Yandex } from './../Generic/YandexMap/index';
-import { CardCarousel } from './../CardCarousel/index';
+import { CardCarousel } from './../Recommended/index';
 import noImg from './../../assets/images/no-image.png'
+import { message } from 'antd';
+import { ProportiesContext } from '../../context/properties'
 
 
 
@@ -21,6 +23,7 @@ export const HouseItem = () => {
 
   const [data, setData] = useState();
   const params = useParams()
+  const [state] = useContext(ProportiesContext)
   // const request = useRequest()
 
   useEffect(() => {
@@ -28,29 +31,47 @@ export const HouseItem = () => {
     }).then((res) => res.json()).then((res) => setData(res?.data))
   }, [params?.id])
 
+  const save = (event) => {
+    event?.stopPropagation();
+    fetch(
+      `https://houzing-app.herokuapp.com/api/v1/houses/addFavourite/${data?.id}?favourite=${!data?.favorite}`,
+      {
+        method: 'PUT',
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      }
+    ).then((res) => res.json())
+      .then((res) => {
+        if (data?.favorite) res?.success && message.warning('Successfully disliked');
+        else res?.success && message.info('Successfully liked');
+        state?.refetch && state?.refetch()
+      });
+  }
+
   // console.log(data?.attachments)
   return (
     <Container>
       <WrapContainer>
         <ImgWrapper>
           <ImgWrap>
-            <ImgWrap.Img src={data?.attachments?.imgPath || noImg} alt='image' />
+            <ImgWrap.Img src={data?.attachments[0]?.imgPath || noImg} alt='image' />
           </ImgWrap>
           <ImgWrap2>
             <ImgWrapper>
               <ImgWrap>
-                <ImgWrap.Img2 src={data?.attachments?.imgPath || noImg} alt='image' />
+                <ImgWrap.Img2 src={data?.attachments[1]?.imgPath || noImg} alt='image' />
               </ImgWrap>
               <ImgWrap>
-                <ImgWrap.Img2 src={data?.attachments?.imgPath || noImg} alt='image' />
+                <ImgWrap.Img2 src={data?.attachments[2]?.imgPath || noImg} alt='image' />
               </ImgWrap>
             </ImgWrapper>
             <ImgWrapper>
               <ImgWrap>
-                <ImgWrap.Img2 src={data?.attachments?.imgPath || noImg} alt='image' />
+                <ImgWrap.Img2 src={data?.attachments[3]?.imgPath || noImg} alt='image' />
               </ImgWrap>
               <ImgWrap>
-                <ImgWrap.Img2 src={data?.attachments?.imgPath || noImg} alt='image' />
+                <ImgWrap.Img2 src={data?.attachments[4]?.imgPath || noImg} alt='image' />
               </ImgWrap>
             </ImgWrapper>
           </ImgWrap2>
@@ -68,9 +89,9 @@ export const HouseItem = () => {
                     <Icons.Arrow className="my__unique__button__class-asdf123" />
                   </Icons>
                   <span className="Info">Share</span>
-                  <Icons>
+                  <Icons onClick={save} >
                     <Icons.Heart className="my__unique__button__class-asdf123" />
-                  </Icons>
+                  </Icons >
                   <span className="Info">Save</span>
                 </Details>
               </ContentDiv>

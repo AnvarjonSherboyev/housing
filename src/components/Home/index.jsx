@@ -5,6 +5,8 @@ import { CatCarousel } from './../CatCarousel/index';
 import { CardCarousel } from './../CardCarousel/index';
 import { ChooseUs } from './../ChooseUs/index';
 import { ReadMore } from './../ReadMore/index';
+import { Loader } from './../Loader/index';
+
 
 
 
@@ -24,6 +26,7 @@ export const Home = () => {
       <CatCarousel />
       <ReadMore />
       <CardCarousel />
+      {/* <Loader /> */}
     </Container>
   )
 }
